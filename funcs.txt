@@ -1,0 +1,34 @@
+# Input for math-qual.sh are lines of comma-separated columns.
+#
+# 1st column: The function to test which has prototype
+#
+#    float FUNC (float)  or  float FUNC (float, float)
+#
+# 2nd and 3rd column specify the X interval.
+# 4th and 5rd column specify the Y interval for binary functions.
+# 6th column is optional for binary functions and specifies
+# the X coordinate to be used in the plot. Valid are: x, y, abs, arg.
+
+# The function FUNC must be such that avrtest_FUNC() is supported
+# as a syscall in the avrtest core simulator.  This is required
+# because the precise values like sinf(1.0) must be provided by
+# some means, and in this context the means is an avrtest syscall.
+# Supported functions are:
+#
+#	sinf, asinf, sinhf, asinhf,
+# 	cosf, acosf, coshf, acoshf,
+#	tanf, atanf, tanhf, atanhf,
+#	sqrtf, cbrtf, expf, logf, log2f,
+#	truncf, ceilf, floorf, roundf fabsf,
+#
+#	powf, atan2f, hypotf, fminf, fmaxf, fmodf,
+#	mulf, divf, addf, subf.
+#
+# and similar for long double functions like sinl.
+
+powf,  0.1, 5, -10, 10, y
+sinf,  -0.5, 6.5
+logf,  0, 5
+atan2f, -3,3, -3,3, arg
+expf,  -5, 5
+expl,  -5, 5
